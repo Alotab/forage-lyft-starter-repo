@@ -1,7 +1,6 @@
 import unittest
 from datetime import date
 
-
 from engine.capulet_engine import CapuletEngine
 from engine.sternman_engine import SternmanEngine
 from engine.willoughby_engine import WilloughbyEngine
@@ -11,12 +10,11 @@ from battery.spindler_battery import SpindlerBattery
 
 
 
-
 class TestCapuletEngine(unittest.TestCase):
     def test_needs_services(self):
         current_mileage = 5000
         last_service_mileage = 1200
-        engine = CapuletEngine(last_service_mileage, current_mileage)
+        engine = CapuletEngine(current_mileage, last_service_mileage)
         self.assertTrue(engine.needs_service())
 
 
