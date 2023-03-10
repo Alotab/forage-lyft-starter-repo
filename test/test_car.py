@@ -8,6 +8,9 @@ from engine.willoughby_engine import WilloughbyEngine
 from battery.nubbin_battery import NubbinBattery
 from battery.spindler_battery import SpindlerBattery
 
+from tire.carrigan import CarriganTire
+from tire.octoprime import OctoprimeTire
+
 
 
 class TestCapuletEngine(unittest.TestCase):
@@ -50,6 +53,20 @@ class TestSpindlerBattery(unittest.TestCase):
         current_date = date.today()
         battery = SpindlerBattery(current_date, last_service_date)
         self.assertTrue(battery.needs_service())
+
+
+
+class TestCarriganTire(unittest.TestCase):
+    def test_needs_services(self):
+        array = [0, 0.4, 0.9, 1]
+        tire = OctoprimeTire(array)
+        self.assertTrue(tire.needs_service())
+
+class TestOctoprimeTire(unittest.TestCase):
+    def test_needs_services(self):
+        array = [0, 0.9, 1, 3]
+        tire = OctoprimeTire(array)
+        self.assertTrue(tire.needs_service())
         
 
 
